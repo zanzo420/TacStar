@@ -127,3 +127,13 @@ Arg1: The effected Unit.
 Arg2: The Stat.
 
 Arg3: The Difference.
+
+UNIT_GEAR_CHANGED
+-----------------
+Is invoked if a GearSlot of a GearSet changed.
+
+Arg1: The effected Unit.
+
+Arg2: The GearSlot.
+
+Arg3: The Gear.

@@ -4,7 +4,7 @@ import com.tacstargame.combat.eventbus.EventBusEvent;
 import com.tacstargame.combat.eventbus.EventBusImpl;
 import com.tacstargame.combat.unit.Unit;
 
-public class Debuff extends StatusEffectImpl {
+public abstract class Debuff extends StatusEffectImpl {
 
 	public Debuff(String name, String description, int fullDuration,
 			boolean dispellable) {

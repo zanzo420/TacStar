@@ -10,12 +10,20 @@ import com.tacstargame.combat.eventbus.EventBusImpl;
 public class AbilitySetImpl implements AbilitySet {
 	
 	private List<Ability> abilities = new ArrayList<Ability>();
+	private int abilityCap;
 	
-	public AbilitySetImpl() {}
+	/**
+	 * Creates an instance of a AbilitySet.
+	 * 
+	 * @param abilityCap The AbilityCap of this Set.
+	 */
+	public AbilitySetImpl(int abilityCap) {
+		this.abilityCap = abilityCap;
+	}
 
 	@Override
 	public void addAbility(Ability ability) {
-		if (abilities.contains(ability)) {
+		if (abilities.size() == abilityCap || abilities.contains(ability)) {
 			EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_ABILITY_ADDED, false, ability);
 		} else {
 			abilities.add(ability);
@@ -31,6 +39,15 @@ public class AbilitySetImpl implements AbilitySet {
 			abilities.add(ability);
 			EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_ABILITY_REMOVED, true, ability);
 		}
+	}
+
+	@Override
+	public int getAbilityCap() {
+		return 0;
+	}
+
+	@Override
+	public void setAbilityCap(int abilityCap) {
 	}
 	
 }

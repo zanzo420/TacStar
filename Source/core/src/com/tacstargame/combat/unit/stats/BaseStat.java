@@ -4,5 +4,6 @@ public enum BaseStat implements Stat {
 	STAMINA,
 	INTELLECT,
 	AGILITY,
-	STRENGTH
+	STRENGTH,
+	SPEED
 }

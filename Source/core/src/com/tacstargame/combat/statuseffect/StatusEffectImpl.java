@@ -1,8 +1,5 @@
 package com.tacstargame.combat.statuseffect;
 
-import com.tacstargame.combat.eventbus.EventBus;
-import com.tacstargame.combat.eventbus.EventBusEvent;
-import com.tacstargame.combat.eventbus.EventBusImpl;
 import com.tacstargame.combat.unit.Unit;
 
 public abstract class StatusEffectImpl implements StatusEffect {
