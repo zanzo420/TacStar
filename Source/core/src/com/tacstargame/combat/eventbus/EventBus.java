@@ -11,6 +11,14 @@ public interface EventBus {
 	void registerForEvent(EventBusListener eventBusListener, EventBusEvent busEvent);
 	
 	/**
+	 * Registers a EventBusListener to multiple EventBusEvent's.
+	 * 
+	 * @param eventBusListener The EventBusListener that wants to be registered to multiple EventBusEvent's.
+	 * @param events The EventBusEvents the EventBusListener wants to be registered to.
+	 */
+	void registerForMultipleEvents(EventBusListener eventBusListener, EventBusEvent ... events);
+	
+	/**
 	 * Unregisters a EventBusListener from a specific EventBusEvent.
 	 * 
 	 * @param eventBusListener The EventBusListener that wants to be unregistered from an EventBusEvent.

@@ -14,24 +14,22 @@ public abstract class Buff extends StatusEffectImpl {
 	@Override
 	public void onApply(Unit source, Unit target) {
 		super.onApply(source, target);
-		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_BUFF_APPLIED, source, target);
+		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_BUFF_APPLIED, this, source, target);
 	}
 	
 	@Override
 	public void onFade(Unit target) {
-		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_BUFF_FADED, source, target);
+		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_BUFF_FADED, this, source, target);
 	}
 
 	@Override
 	public void onRemove(Unit target) {
-		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_BUFF_REMOVED, source, target);
+		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_BUFF_REMOVED, this, source, target);
 	}
 
 	@Override
 	public void onDispell(Unit target) {
-		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_BUFF_DISPELLED, source, target);
+		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_BUFF_DISPELLED, this, source, target);
 	}
-	
-	
 
 }

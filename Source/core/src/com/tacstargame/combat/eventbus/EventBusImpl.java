@@ -9,6 +9,7 @@ public class EventBusImpl implements EventBus {
 	private static EventBus EVENTBUS = new EventBusImpl();
 
 	private HashMap<EventBusEvent, List<EventBusListener>> eventListener = new HashMap<EventBusEvent, List<EventBusListener>>();
+	
 	private EventBusImpl() {
 		if (EVENTBUS != null) {
             throw new IllegalStateException("EventBus is allready initiated!");
@@ -45,6 +46,14 @@ public class EventBusImpl implements EventBus {
 	public void fireEvent(EventBusEvent busEvent, Object... args) {
 		for (EventBusListener listener : eventListener.get(busEvent)) {
 			listener.OnEventFired(busEvent, args);
+		}
+	}
+
+	@Override
+	public void registerForMultipleEvents(EventBusListener eventBusListener,
+			EventBusEvent... events) {
+		for (EventBusEvent event : events) {
+			registerForEvent(eventBusListener, event);
 		}
 	}
 

@@ -14,22 +14,22 @@ public class Debuff extends StatusEffectImpl {
 	@Override
 	public void onApply(Unit source, Unit target) {
 		super.onApply(source, target);
-		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_DEBUFF_APPLIED, source, target);
+		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_DEBUFF_APPLIED, this, source, target);
 	}
 
 	@Override
 	public void onFade(Unit target) {
-		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_DEBUFF_FADED, source, target);
+		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_DEBUFF_FADED, this, source, target);
 	}
 
 	@Override
 	public void onRemove(Unit target) {
-		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_DEBUFF_REMOVED, source, target);
+		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_DEBUFF_REMOVED, this, source, target);
 	}
 
 	@Override
 	public void onDispell(Unit target) {
-		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_DEBUFF_DISPELLED, source, target);
+		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_DEBUFF_DISPELLED, this, source, target);
 	}
 
 }

@@ -101,3 +101,29 @@ Arg1: The effected Unit.
 Arg2: The resource of the Unit.
 
 Arg3: The difference to before.
+
+UNIT_ABILITY_ADDED
+-----------------
+Is invoked if you try to add a ability to a unit.
+
+Arg1: True if added.
+
+Arg2: The Ability.
+
+UNIT_ABILITY_REMOVED
+-----------------
+Is invoked if you try to remove a ability from a unit.
+
+Arg1: True if removed.
+
+Arg2: The Ability.
+
+UNIT_STAT_CHANGED
+-----------------
+Is invoked if a stat of a unit changes.
+
+Arg1: The effected Unit.
+
+Arg2: The Stat.
+
+Arg3: The Difference.
