@@ -81,3 +81,23 @@ Arg1: The debuff that has been removed.
 Arg2: The source of the debuff.
 
 Arg3: The target of the debuff.
+
+UNIT_RESOURCE_MAXVALUE_CHANGED
+-----------------
+Is invoked if the Resourcecap of a Unit changed.
+
+Arg1: The effected Unit.
+
+Arg2: The resource of the Unit.
+
+Arg3: The difference to before.
+
+UNIT_RESOURCE_CURRENTVALUE_CHANGED
+-----------------
+Is invoked if the currentResourceValue of a Unit changed.
+
+Arg1: The effected Unit.
+
+Arg2: The resource of the Unit.
+
+Arg3: The difference to before.
