@@ -11,7 +11,9 @@ public class StatusEffectSetImpl implements StatusEffectSet {
 	private List<StatusEffect> statusEffects = new ArrayList<StatusEffect>();
 	private Unit unit;
 	
-	public StatusEffectSetImpl() {}
+	public StatusEffectSetImpl(Unit unit) {
+		this.unit = unit;
+	}
 
 	@Override
 	public void addStatusEffect(Unit source, StatusEffect statusEffect) {

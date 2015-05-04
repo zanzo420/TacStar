@@ -1,5 +1,7 @@
 package com.tacstargame.combat.gear;
 
+import com.tacstargame.combat.unit.stats.Stats;
+
 public interface GearSet extends Iterable<Gear> {
 	
 	/**
@@ -25,4 +27,11 @@ public interface GearSet extends Iterable<Gear> {
 	 * @return The Gear in GearSlot.
 	 */
 	Gear getGear(GearSlot gearSlot);
+	
+	/**
+	 * Returns all Stats of the GearSet.
+	 * 
+	 * @return Sum of all Stats.
+	 */
+	Stats getGearStats();
 }

@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import com.tacstargame.combat.eventbus.EventBusEvent;
 import com.tacstargame.combat.eventbus.EventBusImpl;
-import com.tacstargame.combat.eventbus.EventBusListener;
 import com.tacstargame.combat.unit.Unit;
 
 public class StatsImpl implements Stats {
@@ -54,11 +53,14 @@ public class StatsImpl implements Stats {
 
 	@Override
 	public Stats add(Stats stats) {
-		StatsImpl tmp = new StatsImpl(unit);
-		for (Stat stat : this.stats.keySet()) {
-			tmp.stats.put(stat, this.stats.get(stat) + stats.getStatValue(stat));
+		if (stats != null) {
+			StatsImpl tmp = new StatsImpl(unit);
+			for (Stat stat : this.stats.keySet()) {
+				tmp.stats.put(stat, this.stats.get(stat) + stats.getStatValue(stat));
+			}
+			return tmp;
 		}
-		return tmp;
+		return this;
 	}
 
 	@Override
@@ -67,24 +69,6 @@ public class StatsImpl implements Stats {
 			increaseStat(stat, stats.getStatValue(stat));
 		}
 		return this;
-	}
-	
-	public static void main(String ... args) {
-		Stats stats1 = new StatsImpl(null);
-		Stats stats2 = new StatsImpl(null);
-		EventBusListener listener = new EventBusListener() {
-			
-			@Override
-			public void OnEventFired(EventBusEvent busEvent, Object... args) {
-				System.out.println("Event: " + busEvent + " Arg1:" + args[0] + " Arg2: " + args[1] + " Arg3: " + args[2]);
-			}
-		};
-		EventBusImpl.getInstance().registerForMultipleEvents(listener, EventBusEvent.values());
-		stats1.setStat(BaseStat.AGILITY, 3);
-		stats1.setStat(BaseStat.AGILITY, 5);
-		stats2.setStat(BaseStat.AGILITY, 4);
-		
-		System.out.println(stats1.increaseStats(stats2).getStatValue(BaseStat.AGILITY));
 	}
 	
 }

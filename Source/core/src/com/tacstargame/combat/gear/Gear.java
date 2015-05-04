@@ -1,7 +1,7 @@
 package com.tacstargame.combat.gear;
 
-import com.tacstargame.combat.unit.Unit;
 import com.tacstargame.combat.unit.stats.Stats;
+import com.tacstargame.combat.unit.character.Character;
 
 public interface Gear {
 	
@@ -10,14 +10,14 @@ public interface Gear {
 	 * 
 	 * @param unit The Unit that holds the GearSet.
 	 */
-	void onEquip(Unit unit);
+	void onEquip(Character character);
 	
 	/**
 	 * Is invoked if Gear is removed from a GearSet.
 	 * 
 	 * @param unit
 	 */
-	void onUnEquip(Unit unit);
+	void onUnEquip(Character character);
 	
 	/**
 	 * Returns the Stats that his
@@ -39,4 +39,11 @@ public interface Gear {
 	 * @return The GearSlot.
 	 */
 	GearSlot getGearSlot();
+	
+	/**
+	 * Returns the name of the Gear.
+	 * 
+	 * @return Name of the Gear.
+	 */
+	String getName();
 }

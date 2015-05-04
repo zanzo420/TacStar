@@ -4,5 +4,6 @@ public enum AbilityResource {
 	NEUTRAL,
 	MANA,
 	ENERGY,
-	RAGE
+	RAGE,
+	HEALTH
 }

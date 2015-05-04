@@ -5,15 +5,16 @@ import java.util.Iterator;
 
 import com.tacstargame.combat.eventbus.EventBusEvent;
 import com.tacstargame.combat.eventbus.EventBusImpl;
-import com.tacstargame.combat.unit.Unit;
+import com.tacstargame.combat.unit.stats.Stats;
+import com.tacstargame.combat.unit.character.Character;
 
 public class GearSetImpl implements GearSet {
 	
-	private Unit unit;
+	private Character character;
 	private HashMap<GearSlot, Gear> gearSet = new HashMap<GearSlot, Gear>();
 	
-	public GearSetImpl(Unit unit) {
-		this.unit = unit;
+	public GearSetImpl(Character character) {
+		this.character = character;
 		initGearSet();
 	}
 	
@@ -26,10 +27,10 @@ public class GearSetImpl implements GearSet {
 	@Override
 	public Gear equip(Gear gear) {
 		Gear tmp = gearSet.get(gear.getGearSlot());
-		tmp.onUnEquip(unit);
+		if (tmp != null) { tmp.onUnEquip(character); }
 		gearSet.put(gear.getGearSlot(), gear);
-		gear.onEquip(unit);
-		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_GEAR_CHANGED, unit, gear.getGearSlot(), gear);
+		gear.onEquip(character);
+		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_GEAR_CHANGED, character, gear.getGearSlot(), gear);
 		return tmp;
 	}
 
@@ -37,8 +38,8 @@ public class GearSetImpl implements GearSet {
 	public Gear unequip(GearSlot gearSlot) {
 		Gear tmp = gearSet.get(gearSlot);
 		gearSet.put(gearSlot, null);
-		tmp.onUnEquip(unit);
-		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_GEAR_CHANGED, unit, gearSlot, null);
+		tmp.onUnEquip(character);
+		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_GEAR_CHANGED, character, gearSlot, null);
 		return tmp;
 	}
 
@@ -50,6 +51,15 @@ public class GearSetImpl implements GearSet {
 	@Override
 	public Iterator<Gear> iterator() {
 		return gearSet.values().iterator();
+	}
+
+	@Override
+	public Stats getGearStats() {
+		Stats tmp = null;
+		for (Gear gear : this) {
+			if (gear != null) { tmp = gear.getStats().add(tmp); }
+		}
+		return tmp;
 	}
 
 }
