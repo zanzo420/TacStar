@@ -14,7 +14,7 @@ import com.tacstargame.combat.unit.stats.StatsImpl;
 import com.tacstargame.combat.unit.status.UnitStatusSet;
 import com.tacstargame.combat.unit.status.UnitStatusSetImpl;
 
-public class UnitImpl implements Unit, EventBusListener {
+public abstract class UnitImpl implements Unit, EventBusListener {
 	
 	private Resource health;
 	private Resource primaryResource;
@@ -47,6 +47,12 @@ public class UnitImpl implements Unit, EventBusListener {
 	@Override
 	public Resource getHealth() {
 		return health;
+	}
+	
+	@Override
+	public void setHealth(Resource resource) {
+		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_RESOURCE_GAINED, this, health, resource);
+		health = resource;
 	}
 	
 	@Override
@@ -111,11 +117,13 @@ public class UnitImpl implements Unit, EventBusListener {
 
 	@Override
 	public void setPrimaryResource(Resource resource) {
+		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_RESOURCE_GAINED, this, primaryResource, resource);
 		this.primaryResource = resource;
 	}
 
 	@Override
 	public void setSecondaryResource(Resource resource) {
+		EventBusImpl.getInstance().fireEvent(EventBusEvent.UNIT_RESOURCE_GAINED, this, primaryResource, resource);
 		this.secondaryResource = resource;
 	}
 	

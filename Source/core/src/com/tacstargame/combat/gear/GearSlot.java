@@ -8,5 +8,7 @@ public enum GearSlot {
 	LEGS,
 	FEET,
 	RING,
-	TRINKET
+	TRINKET,
+	WEAPON,
+	OFFHAND
 }

@@ -82,6 +82,16 @@ Arg2: The source of the debuff.
 
 Arg3: The target of the debuff.
 
+UNIT_RESOURCE_GAINED
+-----------------
+Is invoked if the ResourceType of a Unit changes.
+
+Arg1: The effected Unit.
+
+Arg2: The old resource of the Unit.
+
+Arg3: The new resource of the Unit.
+
 UNIT_RESOURCE_MAXVALUE_CHANGED
 -----------------
 Is invoked if the Resourcecap of a Unit changed.

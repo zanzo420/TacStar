@@ -8,6 +8,7 @@ import com.tacstargame.combat.unit.status.UnitStatusSet;
 
 public interface Unit {
 	Resource getHealth();
+	void setHealth(Resource resource);
 	Resource getPrimaryResource();
 	void setPrimaryResource(Resource resource);
 	Resource getSecondaryResource();

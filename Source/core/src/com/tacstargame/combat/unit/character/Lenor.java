@@ -8,6 +8,7 @@ import com.tacstargame.combat.gear.impl.FeetOfTheWalker;
 import com.tacstargame.combat.gear.impl.RingOfTheProtector;
 import com.tacstargame.combat.statuseffect.impl.GiftOfTheBear;
 import com.tacstargame.combat.unit.resource.Energy;
+import com.tacstargame.combat.unit.resource.Rage;
 import com.tacstargame.combat.unit.stats.BaseStat;
 import com.tacstargame.combat.unit.stats.ModificatorStat;
 
@@ -16,9 +17,9 @@ public class Lenor extends CharacterImpl {
 
 	public Lenor() {
 		super("Lenor");	
-		setSecondaryResource(new Energy(this, 2000));
+		setSecondaryResource(new Rage(this, 0));
 		getBaseStats().increaseStat(BaseStat.STAMINA, 5);
-		getBaseStats().increaseStat(ModificatorStat.MAXENERGY, 15);
+		getBaseStats().increaseStat(ModificatorStat.MAXRAGE, 15);
 		getBaseStats().increaseStat(BaseStat.SPEED, 15);
 	}
 	
@@ -33,27 +34,28 @@ public class Lenor extends CharacterImpl {
 			}
 		};
 		EventBusImpl.getInstance().registerForMultipleEvents(listener, EventBusEvent.values());
+//		System.out.println("HP: " + character.getHealth().getMaxValue());
+//		System.out.println("MANA: " + character.getSecondaryResource().getCurrentValue() + "/" +  character.getSecondaryResource().getMaxValue());
+//		System.out.println("---------------------------------------------");
+//		character.getStatusEffectSet().addStatusEffect(character, new GiftOfTheBear());
+//		character.getGearSet().equip(new RingOfTheProtector());
+//		character.getSecondaryResource().turnOver();
+//		System.out.println("HP: " + character.getHealth().getMaxValue());
+//		System.out.println("MANA: " + character.getSecondaryResource().getCurrentValue() + "/" +  character.getSecondaryResource().getMaxValue());
+//		System.out.println("---------------------------------------------");
+//		character.getGearSet().equip(new FeetOfTheWalker());
+//		System.out.println("HP: " + character.getHealth().getMaxValue());
+//		System.out.println("MANA: " + character.getSecondaryResource().getCurrentValue() + "/" +  character.getSecondaryResource().getMaxValue());
+//		System.out.println("---------------------------------------------");
+//		character.getGearSet().unequip(GearSlot.RING);
+//		System.out.println("HP: " + character.getHealth().getMaxValue());
+//		System.out.println("MANA: " + character.getSecondaryResource().getCurrentValue() + "/" +  character.getSecondaryResource().getMaxValue());
+//		System.out.println("---------------------------------------------");
+//		character.getStatusEffectSet().dispellStatusEffect(new GiftOfTheBear());
+//		character.getGearSet().unequip(GearSlot.FEET);
+		character.getHealth().increaseCurrentValue(-20);
 		System.out.println("HP: " + character.getHealth().getMaxValue());
-		System.out.println("MANA: " + character.getSecondaryResource().getCurrentValue() + "/" +  character.getSecondaryResource().getMaxValue());
-		System.out.println("---------------------------------------------");
-		character.getStatusEffectSet().addStatusEffect(character, new GiftOfTheBear());
-		character.getGearSet().equip(new RingOfTheProtector());
-		character.getSecondaryResource().turnOver();
-		System.out.println("HP: " + character.getHealth().getMaxValue());
-		System.out.println("MANA: " + character.getSecondaryResource().getCurrentValue() + "/" +  character.getSecondaryResource().getMaxValue());
-		System.out.println("---------------------------------------------");
-		character.getGearSet().equip(new FeetOfTheWalker());
-		System.out.println("HP: " + character.getHealth().getMaxValue());
-		System.out.println("MANA: " + character.getSecondaryResource().getCurrentValue() + "/" +  character.getSecondaryResource().getMaxValue());
-		System.out.println("---------------------------------------------");
-		character.getGearSet().unequip(GearSlot.RING);
-		System.out.println("HP: " + character.getHealth().getMaxValue());
-		System.out.println("MANA: " + character.getSecondaryResource().getCurrentValue() + "/" +  character.getSecondaryResource().getMaxValue());
-		System.out.println("---------------------------------------------");
-		character.getStatusEffectSet().dispellStatusEffect(new GiftOfTheBear());
-		character.getGearSet().unequip(GearSlot.FEET);
-		System.out.println("HP: " + character.getHealth().getMaxValue());
-		System.out.println("MANA: " + character.getSecondaryResource().getCurrentValue() + "/" +  character.getSecondaryResource().getMaxValue());
+		System.out.println(character.getSecondaryResource().getClass().getSimpleName() + ": " + character.getSecondaryResource().getCurrentValue() + "/" +  character.getSecondaryResource().getMaxValue());
 
 	}
 

@@ -5,5 +5,6 @@ public enum BaseStat implements Stat {
 	INTELLECT,
 	AGILITY,
 	STRENGTH,
-	SPEED
+	SPEED,
+	WEAPONDAMAGE
 }
