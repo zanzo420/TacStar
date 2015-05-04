@@ -1,6 +1,7 @@
 package com.tacstargame.combat.ability.abilityset;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.tacstargame.combat.ability.Ability;
@@ -49,5 +50,12 @@ public class AbilitySetImpl implements AbilitySet {
 	@Override
 	public void setAbilityCap(int abilityCap) {
 	}
+
+	@Override
+	public Iterator<Ability> iterator() {
+		return abilities.iterator();
+	}
+
+
 	
 }

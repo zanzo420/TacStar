@@ -1,6 +1,7 @@
 package com.tacstargame.combat.statuseffect;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.tacstargame.combat.unit.Unit;
@@ -58,6 +59,11 @@ public class StatusEffectSetImpl implements StatusEffectSet {
 			if (statusEffect instanceof Debuff) { tmp.add(statusEffect); }
 		}
 		return tmp;
+	}
+
+	@Override
+	public Iterator<StatusEffect> iterator() {
+		return statusEffects.iterator();
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.tacstargame.combat.gear;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 import com.tacstargame.combat.eventbus.EventBusEvent;
 import com.tacstargame.combat.eventbus.EventBusImpl;
@@ -44,6 +45,11 @@ public class GearSetImpl implements GearSet {
 	@Override
 	public Gear getGear(GearSlot gearSlot) {
 		return gearSet.get(gearSlot);
+	}
+
+	@Override
+	public Iterator<Gear> iterator() {
+		return gearSet.values().iterator();
 	}
 
 }

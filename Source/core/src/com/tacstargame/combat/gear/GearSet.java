@@ -1,6 +1,6 @@
 package com.tacstargame.combat.gear;
 
-public interface GearSet {
+public interface GearSet extends Iterable<Gear> {
 	
 	/**
 	 * Equips a Gear to its GearSlot.

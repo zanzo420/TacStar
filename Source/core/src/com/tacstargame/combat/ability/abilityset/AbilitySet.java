@@ -2,7 +2,7 @@ package com.tacstargame.combat.ability.abilityset;
 
 import com.tacstargame.combat.ability.Ability;
 
-public interface AbilitySet {
+public interface AbilitySet extends Iterable<Ability> {
 	
 	/**
 	 * Adds an Ability to the AbilitySet.

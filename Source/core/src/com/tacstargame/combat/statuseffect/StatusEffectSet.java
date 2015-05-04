@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.tacstargame.combat.unit.Unit;
 
-public interface StatusEffectSet {
+public interface StatusEffectSet extends Iterable<StatusEffect> {
 	
 	/**
 	 * Adds a StatusEffect to this Set.

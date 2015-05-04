@@ -19,6 +19,12 @@ public interface Stats {
 	void increaseStat(Stat stat, int value);
 	
 	/**
+	 * Adds a StatSet to this StatSet (permanent) and returns it.
+	 * 
+	 * @param stats
+	 */
+	Stats increaseStats(Stats stats);
+	/**
 	 * Sets a stat value.
 	 * 
 	 * @param stat The stat that will be set.

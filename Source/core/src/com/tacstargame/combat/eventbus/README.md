@@ -137,3 +137,19 @@ Arg1: The effected Unit.
 Arg2: The GearSlot.
 
 Arg3: The Gear.
+
+UNIT_STATUS_ADDED
+-----------------
+Is invoked if a UnitStatus is added to a Unit.
+
+Arg1: The effected Unit.
+
+Arg2: The UnitStatus.
+
+UNIT_STATUS_REMOVED
+-----------------
+Is invoked if a UnitStatus is removed from Unit.
+
+Arg1: The effected Unit.
+
+Arg2: The UnitStatus.
