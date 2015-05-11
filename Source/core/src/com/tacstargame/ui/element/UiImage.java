@@ -18,6 +18,14 @@ public class UiImage extends UiElementImpl {
 	public void dispose() {
 		texture.dispose();		
 	}
+	
+	public Texture getTexture() {
+		return texture;
+	}
+	
+	public void setTexture(Texture texture) {
+		this.texture = texture;
+	}
 
 	@Override
 	public void update() {}

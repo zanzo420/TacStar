@@ -20,6 +20,11 @@ public class Background extends UiElementImpl {
 		super.render(batch);
 		batch.draw(texture, position.x, position.y, measure.width, measure.height);
 	}
+	
+	@Override
+	public void scale(float scale) {
+		setMeasure(new Measure(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
+	}
 
 	@Override
 	public void dispose() {
@@ -31,6 +36,7 @@ public class Background extends UiElementImpl {
 
 	@Override
 	public void render(SpriteBatch batch, Vector2 origin) {}
+
 
 
 }

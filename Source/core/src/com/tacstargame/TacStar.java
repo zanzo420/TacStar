@@ -3,6 +3,7 @@ package com.tacstargame;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.tacstargame.input.Input;
 import com.tacstargame.rendering.Render;
 import com.tacstargame.rendering.RenderImpl;
 import com.tacstargame.rendering.TextureResource;
@@ -18,6 +19,7 @@ public class TacStar extends Game {
 	
 	private Plattform plattform;
 	private Render render;
+	private Input input;;
 	
 	private TacStarScreen tacStarScreen;
 	
@@ -30,16 +32,27 @@ public class TacStar extends Game {
 		return plattform;
 	}
 	
+	public Input getInput() {
+		return input;
+	}
+	
+	public Render getRender() {
+		return render;
+	}
+	
 	@Override
 	public void setScreen(Screen screen) {
 		tacStarScreen = (TacStarScreen) screen;
+		tacStarScreen.getUI().scale(render.getScale());
 	}
 	
 	@Override
 	public void create () {
+		input = new Input();
 		RenderSettings renderSettings = new RenderSettings();
 		renderSettings.setResolution(new Measure(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
 		render = new RenderImpl(renderSettings);
+		Gdx.input.setInputProcessor(input);
 		setScreen(AbstractTacStarScreenFactory.getTacStarScreenFactory(plattform).getMainMenue(this));
 	}
 

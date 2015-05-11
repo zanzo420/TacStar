@@ -11,4 +11,5 @@ public interface TacStarScreen extends Screen, Updateable {
 	Ui getUI();
 	World getPhysic();
 	RayHandler getRayHandler();
+	void scale(float scale);
 }

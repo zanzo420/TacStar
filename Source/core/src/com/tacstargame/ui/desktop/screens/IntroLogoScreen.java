@@ -31,6 +31,7 @@ public class IntroLogoScreen extends AbstractScreen {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		manager.update(delta);
+		System.out.println("test");
 		batch.begin();
 		fadingSprite.draw(batch);
 		batch.end();

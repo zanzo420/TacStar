@@ -8,7 +8,7 @@ public class AndroidTacStarScreenFactory extends AbstractTacStarScreenFactory {
 
 	@Override
 	public TacStarScreen getMainMenue(TacStar tacStar) {
-		return null;
+		return new MainMenue(tacStar);
 	}
 
 	@Override
@@ -18,6 +18,11 @@ public class AndroidTacStarScreenFactory extends AbstractTacStarScreenFactory {
 
 	@Override
 	public TacStarScreen getCombatScreen(TacStar tacStar) {
+		return null;
+	}
+	
+	@Override
+	public TacStarScreen getSettingsScreen(TacStar tacStar) {
 		return null;
 	}
 

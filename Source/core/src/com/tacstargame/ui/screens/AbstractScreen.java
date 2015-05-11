@@ -1,18 +1,15 @@
 package com.tacstargame.ui.screens;
 
 import box2dLight.RayHandler;
-
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.tacstargame.TacStar;
 import com.tacstargame.ui.TacStarScreen;
 import com.tacstargame.ui.Ui;
 import com.tacstargame.ui.UiElement;
+import com.tacstargame.ui.element.UiFps;
+import com.tacstargame.ui.element.UiImpl;
+import com.tacstargame.ui.util.Measure;
 
 public class AbstractScreen implements TacStarScreen {
 	
@@ -25,8 +22,21 @@ public class AbstractScreen implements TacStarScreen {
 	
 	public AbstractScreen(TacStar tacStar) {
 		this.tacStar = tacStar;
+		ui = new UiImpl();
 		physic = new World(new Vector2(0,0), true);
 		rayHandler = new RayHandler(physic);
+		rayHandler.setAmbientLight(1f);
+		tacStar.getInput().clear();
+		tacStar.getInput().addInputListener(ui);
+		UiElement fpsCounter = new UiFps(new Vector2(1865, 1070), new Measure(0,0));
+		ui.addUiElement(fpsCounter);
+		ui.scale(1);
+	}
+	
+	@Override
+	public void scale(float scale) {
+		ui.scale(scale);
+		if (background != null) { background.scale(scale); }
 	}
 
 	@Override
@@ -48,11 +58,15 @@ public class AbstractScreen implements TacStarScreen {
 	public void show() {}
 	
 	@Override
-	public void update() {}
+	public void update() {
+		ui.update();
+		background.update();
+	}
 
 	@Override
 	public void dispose() {
 		background.dispose();		
+		tacStar.getInput().removeInputListener(ui);
 	}
 
 	@Override

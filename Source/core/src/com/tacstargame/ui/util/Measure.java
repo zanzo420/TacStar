@@ -8,4 +8,14 @@ public class Measure {
 		this.height = height;
 		this.width = width;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return width == ((Measure) obj).width && height == ((Measure) obj).height;
+	}
+	
+	@Override
+	public String toString() {
+		return "[" + width + "x" + height + "]";
+	}
 }

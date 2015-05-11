@@ -10,6 +10,7 @@ private static AssetManager manager;
 	
 	public static final String path = "data/";	
 	public static final String TACSTAR_LOGO = "Logo.png";
+	public static final String STUDIO_LOGO = "Logo.png";
 	public static final String TACSTAR_MAINMENUE_BACKGROUND = "mainmenue_background.png";
 
 	
@@ -29,6 +30,7 @@ private static AssetManager manager;
 
 		manager.load(TACSTAR_LOGO, Texture.class, parameter);
 		manager.load(TACSTAR_MAINMENUE_BACKGROUND, Texture.class, parameter);
+		manager.load(STUDIO_LOGO, Texture.class, parameter);
 		
 	}
 }
